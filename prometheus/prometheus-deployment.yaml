@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus-core
-  namespace: monitoring-prod
+  namespace: monitoring-infrastructure
   labels:
     app: prometheus
     component: core

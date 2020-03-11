@@ -2,8 +2,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana-ncg-service-prod
-  namespace: grafana-ncg-prod
+  name: grafana-service
+  namespace: monitoring-infrastructure
   annotations:
     metallb.universe.tf/address-pool: production-public-ips
 spec:

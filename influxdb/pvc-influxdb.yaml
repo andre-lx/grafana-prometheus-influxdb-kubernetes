@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: influxdb-database-500-pvc
-  namespace: influxdb-prod
+  namespace: monitoring-infrastructure
 spec:
   accessModes:
     - ReadWriteOnce
