@@ -11,7 +11,7 @@ metadata:
     metallb.universe.tf/address-pool: production-public-ips
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.192.13.74
+  loadBalancerIP: 10.193.14.79
   ports:
     - port: 9090
       protocol: TCP
