@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-core
+  namespace: monitoring-prod
+  labels:
+    app: prometheus
+    component: core
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      name: prometheus-main
+      labels:
+        app: prometheus
+        component: core
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus:v2.16.0
+        args:
+          - '--storage.tsdb.retention.time=90d'
+          - '--config.file=/etc/prometheus/prometheus.yaml'
+          - '--log.level=debug'
+        ports:
+        - name: webui
+          containerPort: 9090
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/prometheus/
+      volumes:
+      - name: config-volume
+        configMap:
+          name: prometheus-core

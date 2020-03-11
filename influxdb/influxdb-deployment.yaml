@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb-deployment
+  namespace: influxdb-prod
+  labels:
+    app: influxdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influxdb 
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+      - env:
+        name: influxdb
+        image: influxdb:1.7.9-alpine
+        ports:
+        - containerPort: 8086 
+          name: apiport
+        volumeMounts:
+        - name: influxdb-files
+          mountPath: /var/lib/influxdb/ 
+        - name: influx-config
+          mountPath: /etc/influxdb/
+      volumes:
+      - name: influx-config
+        configMap:
+          name: influxdb-config
+      - name: influxdb-files
+        persistentVolumeClaim:
+          claimName: influxdb-database-500-pvc
+---

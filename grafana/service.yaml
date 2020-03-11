@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-ncg-service-prod
+  namespace: grafana-ncg-prod
+  annotations:
+    metallb.universe.tf/address-pool: production-public-ips
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+  selector:
+    app: grafana
+  type: LoadBalancer
+  loadBalancerIP: 10.191.13.52
