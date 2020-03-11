@@ -27,11 +27,18 @@ kubectl apply -f grafana/
 Create the 'prometheus' database in the influxdb container.
 Add your hosts to the prometheus configuration file (configmap).
 Add your dashboards to grafana. 
+Add the prometheus datasource to grafana.
 ```
 
-# Note
+# Accessing services
 
-This project is an example of the current stack. You will need to change the files to match your environment and system. 
+Grafana: 10.193.14.78:3000
+
+Prometheus: 10.193.14.79:9090
+
+# Notes
+
+This project is an simplify example of the current stack. You will need to change the files to match your environment and system. 
 
 If you need any help pelase open an issue, and I will try to help you making this work. 
 
