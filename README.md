@@ -31,6 +31,8 @@ Add your dashboards to grafana.
 
 # Note
 
-This project is an example of the current stack. You will need to configure the files to match your system and configuration. 
+This project is an example of the current stack. You will need to change the files to match your environment and system. 
 
-If you need any help, open an issue, and I will try to help you making this work. 
+If you need any help pelase open an issue, and I will try to help you making this work. 
+
+This stack is currently working with +500 hosts, running the ceph_exporter, node_exporter, lustre_exporter, gpu_exporter, ...
